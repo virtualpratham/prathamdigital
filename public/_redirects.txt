@@ -1,0 +1,4 @@
+# Force HTTPS and redirect all www traffic to non-www (main domain)
+http://www.prathamdigital.in/*   https://prathamdigital.in/:splat   301!
+http://prathamdigital.in/*       https://prathamdigital.in/:splat   301!
+https://www.prathamdigital.in/*  https://prathamdigital.in/:splat   301!

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="fevicon.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="fevicon.jpg">
+    <title>About Us – Pratham Digital</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary:#45c2ef; --primary-dark:#4f46e5; --secondary:#0f172a; --text:#334155; --light:#f8fafc; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif; line-height:1.6; color:var(--text); background:linear-gradient(135deg,#667eea 0%, #764ba2 100%); min-height:100vh; overflow-x:hidden; -webkit-text-size-adjust:100%; padding-top:100px; }
+        header { background:rgba(255,255,255,.95); backdrop-filter:blur(10px); box-shadow:0 4px 30px rgba(0,0,0,.1); position:fixed; top:0; left:0; width:100%; z-index:100; transition: all 0.3s ease; }
+        nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; }
+        .nav-menu { display:flex; gap:2rem; align-items:center; }
+        .nav-menu a { color:var(--text); text-decoration:none; transition:all .3s ease; position:relative; font-weight:500; }
+        .nav-menu a::after { content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--primary); transition:width .3s ease; }
+        .nav-menu a:hover::after { width:100%; }
+        .hamburger-menu { display:none; cursor:pointer; z-index:101; padding:0.5rem; }
+        .hamburger-menu .bar { display:block; width:25px; height:3px; margin:5px auto; background-color:var(--secondary); transition:all 0.3s ease-in-out; }
+        .logo { font-size:2.2rem; font-weight:800; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; position:relative; display:inline-block; }
+        .logo::after { content:''; position:absolute; bottom:-2px; left:0; width:100%; height:2px; background:linear-gradient(90deg,var(--primary),var(--primary-dark)); transform:scaleX(0); transition:transform .3s ease; }
+        .logo:hover::after { transform:scaleX(1); }
+        .logo:hover { transform:translateY(-1px); transition:transform .2s ease; }
+        .container { max-width:1200px; margin:0 auto; padding:2rem; }
+        .panel { background:rgba(255,255,255,.95); border-radius:20px; padding:2rem; box-shadow:0 20px 60px rgba(0,0,0,.15); animation: fadeUp .6s ease both; }
+        .title { font-size:2rem; color:var(--secondary); margin-bottom:1rem; text-align:center; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2rem; margin-top:2rem; }
+        .feature-card { background:#ffffff; border-radius:16px; padding:2rem; box-shadow:0 10px 30px rgba(0,0,0,.08); text-align:center; transition:transform .3s ease; }
+        .feature-card:hover { transform:translateY(-5px); }
+        .feature-icon { width:60px; height:60px; margin:0 auto 1rem; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; }
+        .feature-card h3 { color:var(--secondary); margin-bottom:.5rem; }
+        .feature-card p { color:var(--text); }
+        footer { background:rgba(255,255,255,.95); margin-top:3rem; padding:2rem 0 1rem; border-radius:20px 20px 0 0; }
+        .footer-content { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; }
+        .footer-section h3 { color:var(--secondary); margin-bottom:1rem; }
+        .footer-section ul { list-style:none; padding:0; margin:0; }
+        .footer-section ul li { margin-bottom:.5rem; }
+        .footer-section ul li a { color:var(--text); text-decoration:none; transition:color .3s ease; }
+        .footer-section ul li a:hover { color:var(--primary); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #f1f5f9; color: var(--text); border-radius: 50%;
+            display:flex; align-items:center; justify-content:center; transition: all .3s; }
+        .social-links a:hover { transform: translateY(-5px); background: var(--primary); color: white; }
+        .footer-bottom { text-align:center; padding:1.5rem; border-top:1px solid #e5e7eb; margin-top:1rem; }
+        @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+        
+        @media (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                padding-top: 80px;
+            }
+
+            header {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+            
+            nav {
+                padding: 0.75rem 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                font-size: 1.75rem;
+            }
+            
+            .hamburger-menu {
+                display: block;
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            .hamburger-menu.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger-menu.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger-menu.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                height: 100vh;
+                padding-top: 5rem;
+                text-align: center;
+                transition: 0.3s;
+                gap: 1.5rem;
+                z-index: 100;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu a {
+                font-size: 1.25rem;
+                padding: 0.75rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .panel {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            .title {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .feature-card p {
+                font-size: 0.95rem;
+            }
+            
+            footer {
+                margin-top: 2rem;
+                padding: 1.5rem 0 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .footer-bottom {
+                padding: 1.25rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.75rem;
+            }
+            
+            .panel {
+                padding: 1.25rem;
+            }
+            
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.25rem;
+            }
+            
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Prevent horizontal scroll */
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        * {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="index.html#home">📚 Pratham Digital</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="hamburger-menu" id="hamburgerMenu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="panel">
+            <h1 class="title">About Us</h1>
+            <p style="text-align:center; margin-bottom:2rem; font-size:1.1rem;">We provide premium digital content to help you achieve your goals faster.</p>
+            
+            <div class="grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Instant Download</h3>
+                    <p>Get immediate access to your ebook after purchase. Read anywhere, anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Your transactions are protected with industry-standard encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>Professionally written and edited content that delivers real value.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Lifetime Access</h3>
+                    <p>Once purchased, the ebook is yours forever with free updates.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Dedecated Support</h3>
+                    <p>Get quick assistance for any queries related to your purchase.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>We prioritize our readers experience and continuously improvement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide premium digital content to help you achieve your goals faster.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/pratham_digital_in/" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal Information</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="cancellation-refunds.html">Cancellation & Refunds</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:itsprathambusiness@gmail.com">itsprathambusiness@gmail.com</a></p>
+                <p>Phone: <a href="tel:+919415946434">+91 94159 46434</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 Pratham Digital. All Rights Reserved.
+            <p><strong>This website is created and managed by Pratham Sharma</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle - Run after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+            
+            function toggleHamburger() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                const expanded = hamburger.classList.contains('active');
+                hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            }
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', toggleHamburger);
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleHamburger();
+                    }
+                });
+                
+                // Close menu when a link is clicked
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navMenu.classList.contains('active')) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

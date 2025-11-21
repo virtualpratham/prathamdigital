@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratham Digital – Download</title>
+    <meta name="description" content="Download your Successful Trader ebook securely. Link is valid for a short time.">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #45c2ef;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --text: #334155;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            backdrop-filter: blur(5px);
+            background: var(--glass);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            right: 20%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 60%;
+            bottom: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-100px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(100px) rotate(240deg);
+            }
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+            transition: transform 0.2s ease;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Panel */
+        .panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease;
+        }
+
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            top: -150px;
+            right: -150px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .panel h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .panel p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            animation: slideInLeft 0.8s ease 0.2s both;
+        }
+
+        .success-img {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            animation: slideInRight 0.8s ease;
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .meta {
+            margin-top: 1rem;
+            color: #475569;
+            animation: slideInLeft 0.8s ease 0.4s both;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            margin-top: 4rem;
+            padding: 3rem 0 1rem;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #f1f5f9;
+            color: var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .panel {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .panel {
+                padding: 2rem 1.5rem;
+                margin: 1rem 0;
+            }
+
+            .panel h1 {
+                font-size: 1.75rem;
+            }
+
+            .panel p {
+                font-size: 1rem;
+            }
+
+            .success-img {
+                width: 100px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.75rem;
+                min-height: 44px;
+                padding: 0.875rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .panel {
+                padding: 1.5rem 1rem;
+            }
+
+            .panel h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .success-img {
+                width: 80px;
+            }
+        }
+    </style>
+    <script>
+        (function () {
+            const EXP_KEY = 'download_expire_at';
+            const DURATION_MS = 5 * 60 * 1000; // 5 minutes
+
+            function getExpireAt() {
+                const raw = localStorage.getItem(EXP_KEY);
+                const n = raw ? Number(raw) : NaN;
+                return Number.isFinite(n) ? n : null;
+            }
+
+            function setExpireAtIfMissing() {
+                const existing = getExpireAt();
+                if (existing && existing > 0) return existing;
+                const expireAt = Date.now() + DURATION_MS;
+                localStorage.setItem(EXP_KEY, String(expireAt));
+                return expireAt;
+            }
+
+            function redirectHomeReplace() {
+                try { localStorage.removeItem(EXP_KEY); } catch (_) { }
+                window.location.replace('index.html');
+            }
+
+            function getProductName(pdfFileName) {
+                if (pdfFileName === 'ebook.pdf') {
+                    return 'Successful Trader "From Strategy to Mindset"';
+                } else if (pdfFileName === 'prompt_analysis.pdf') {
+                    return 'Indian Stock Market Analysis';
+                } else if (pdfFileName === 'economic_indicator.pdf') {
+                    return 'Role of Economic Events in Crypto Market';
+                }
+                return 'your ebook';
+            }
+
+            function init() {
+                const params = new URLSearchParams(location.search);
+                const pid = params.get('payment_id');
+                const el = document.getElementById('paymentId');
+                if (pid && el) el.textContent = pid; else if (el) el.textContent = '-';
+
+                // Get all products from cart
+                let productsToDownload = [];
+                try {
+                    const cartPDFsStr = localStorage.getItem('cartPDFs');
+                    const cartStr = localStorage.getItem('cart');
+
+                    if (cartStr) {
+                        const cart = JSON.parse(cartStr);
+                        const cartPDFs = cartPDFsStr ? JSON.parse(cartPDFsStr) : {};
+
+                        // Collect all unique PDFs from cart
+                        const pdfMap = {};
+                        cart.forEach(item => {
+                            const pdfFileName = cartPDFs[item.name] || item.pdf || 'ebook.pdf';
+                            if (!pdfMap[pdfFileName]) {
+                                pdfMap[pdfFileName] = getProductName(pdfFileName);
+                            }
+                        });
+
+                        // Convert to array
+                        Object.entries(pdfMap).forEach(([pdf, name]) => {
+                            productsToDownload.push({ pdf, name });
+                        });
+                    }
+                } catch (e) {
+                    console.error('Error reading cart data:', e);
+                }
+
+                // Fallback to default product
+                if (productsToDownload.length === 0) {
+                    productsToDownload.push({ pdf: 'ebook.pdf', name: 'Successful Trader "From Strategy to Mindset"' });
+                }
+
+                // Update download message
+                const downloadMessage = document.getElementById('downloadMessage');
+                if (downloadMessage) {
+                    const productCount = productsToDownload.length;
+                    if (productCount === 1) {
+                        downloadMessage.textContent = `Your purchase of ${productsToDownload[0].name} is confirmed. Click below to download.`;
+                    } else {
+                        downloadMessage.textContent = `Your purchase of ${productCount} products is confirmed. Click below to download your files.`;
+                    }
+                }
+
+                // Generate download links
+                const buttonsContainer = document.getElementById('downloadButtonsContainer');
+                if (buttonsContainer) {
+                    buttonsContainer.innerHTML = '';
+
+                    productsToDownload.forEach(product => {
+                        // Download button
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = `/downloads/${product.pdf}`;
+                        downloadLink.download = product.pdf;
+                        downloadLink.className = 'btn btn-primary';
+                        downloadLink.style.display = 'inline-block';
+                        downloadLink.textContent = `Download: ${product.name}`;
+                        buttonsContainer.appendChild(downloadLink);
+
+                        // View button
+                        const viewLink = document.createElement('a');
+                        viewLink.href = `/downloads/${product.pdf}`;
+                        viewLink.target = '_blank';
+                        viewLink.className = 'btn btn-secondary';
+                        viewLink.style.display = 'inline-block';
+                        viewLink.textContent = `View: ${product.name}`;
+                        buttonsContainer.appendChild(viewLink);
+                    });
+
+                    // Add return home button
+                    const homeLink = document.createElement('a');
+                    homeLink.href = 'index.html';
+                    homeLink.className = 'btn btn-secondary';
+                    homeLink.style.display = 'inline-block';
+                    homeLink.textContent = 'Return to Home';
+                    buttonsContainer.appendChild(homeLink);
+                }
+
+                // Establish or reuse expiry time
+                const expireAt = setExpireAtIfMissing();
+                const now = Date.now();
+                let remainingMs = expireAt - now;
+                if (remainingMs <= 0) {
+                    redirectHomeReplace();
+                    return;
+                }
+
+                // Build timer UI
+                let timeLeft = Math.ceil(remainingMs / 1000);
+                const timerDisplay = document.createElement('div');
+                timerDisplay.id = 'timer-display';
+                timerDisplay.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                    font-weight: 600;
+                    color: var(--secondary);
+                    z-index: 1000;
+                    border: 2px solid var(--primary);
+                    backdrop-filter: blur(10px);
+                `;
+                document.body.appendChild(timerDisplay);
+
+                function updateTimer() {
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    timerDisplay.innerHTML = `
+                        <div style="font-size: 0.9rem; margin-bottom: 0.25rem; color: #666;">Auto-redirect in:</div>
+                        <div style="font-size: 1.2rem; color: var(--primary);">${timeString}</div>
+                    `;
+
+                    if (timeLeft <= 0) {
+                        timerDisplay.innerHTML = `<div style="color: var(--primary); font-size: 1rem;">Redirecting to home...</div>`;
+                        setTimeout(() => {
+                            redirectHomeReplace();
+                        }, 500);
+                    } else {
+                        timeLeft--;
+                        setTimeout(updateTimer, 1000);
+                    }
+                }
+
+                updateTimer();
+            }
+
+            // Handle BFCache or back/forward navigation
+            window.addEventListener('pageshow', (e) => {
+                const expireAt = getExpireAt();
+                if (expireAt && Date.now() >= expireAt) {
+                    redirectHomeReplace();
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', init);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">📚 Pratham Digital</div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="panel">
+            <img class="success-img" src="payment confirmation.png" alt="Payment Confirmation">
+            <h1>Payment Successful</h1>
+            <p id="downloadMessage">Your purchase is confirmed. Click below to download your ebook.</p>
+            <div
+                style="background:#fef3c7; border:2px solid #f59e0b; border-radius:12px; padding:1rem; margin:1.5rem 0; color:#92400e; font-weight:600;">
+                ⚠️ Download this book otherwise you lose your access
+            </div>
+            <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; animation: slideInLeft 0.8s ease 0.6s both;"
+                id="downloadButtonsContainer">
+                <a id="downloadBtn" class="btn btn-primary" href="#" download>Download</a>
+                <a id="viewBtn" class="btn btn-secondary" href="#">View Now</a>
+                <a class="btn btn-secondary" href="index.html">Return to Home</a>
+            </div>
+            <!-- <div class="meta">Payment ID: <span id="paymentId">-</span></div> -->
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide premium digital content to help you achieve your goals faster.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/pratham_digital_in/" aria-label="Instagram" target="_blank"
+                        rel="noopener">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal Information</h3>
+                <ul>
+                    <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html" target="_blank" rel="noopener">Terms of Service</a></li>
+                    <li><a href="cancellation-refunds.html" target="_blank" rel="noopener">Cancellation & Refunds</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:itsprathambusiness@gmail.com">itsprathambusiness@gmail.com</a></p>
+                <p>Phone: <a href="tel:+919415946434">+91 94159 46434</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pratham Digital. All Rights Reserved.</p>
+            <p><strong>This website is created and managed by Pratham Sharma</strong></p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Checkout Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .test-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .test-btn:hover {
+            background: #764ba2;
+        }
+
+        .test-btn.danger {
+            background: #e74c3c;
+        }
+
+        .test-btn.danger:hover {
+            background: #c0392b;
+        }
+
+        .output {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .success {
+            color: #2ecc71;
+        }
+
+        .error {
+            color: #e74c3c;
+        }
+
+        .info {
+            color: #3498db;
+        }
+
+        .warning {
+            color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🧪 Cart Checkout Test Suite</h1>
+            <p>Test the cart functionality and checkout flow</p>
+        </div>
+
+        <div class="card">
+            <h2>📋 Step 1: Setup Test Cart</h2>
+            <div class="test-section">
+                <p>Create a test cart with products:</p>
+                <button class="test-btn" onclick="setupTestCart()">Setup Test Cart</button>
+                <button class="test-btn danger" onclick="clearCart()">Clear Cart</button>
+            </div>
+            <div id="output1" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>📊 Step 2: Check Cart State</h2>
+            <div class="test-section">
+                <p>Verify cart data in localStorage:</p>
+                <button class="test-btn" onclick="checkCartState()">Check Cart State</button>
+                <button class="test-btn" onclick="checkLocalStorage()">Check localStorage</button>
+            </div>
+            <div id="output2" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>🔄 Step 3: Simulate Cart Page Load</h2>
+            <div class="test-section">
+                <p>Simulate what happens when cart.html loads:</p>
+                <button class="test-btn" onclick="simulateCartPageLoad()">Simulate Load</button>
+            </div>
+            <div id="output3" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>✅ Step 4: Test Checkout Validation</h2>
+            <div class="test-section">
+                <p>Test the checkout validation logic:</p>
+                <button class="test-btn" onclick="testCheckoutValidation()">Test Validation</button>
+            </div>
+            <div id="output4" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>🔍 Step 5: Full Checkout Simulation</h2>
+            <div class="test-section">
+                <p>Complete checkout flow (without actual payment):</p>
+                <button class="test-btn" onclick="testFullCheckout()">Test Full Checkout</button>
+            </div>
+            <div id="output5" class="output"></div>
+        </div>
+
+        <div class="card">
+            <h2>📝 Instructions</h2>
+            <ol>
+                <li>Click "Setup Test Cart" to add products</li>
+                <li>Click "Check Cart State" to verify data</li>
+                <li>Click "Simulate Load" to test cart.html's loadCart()</li>
+                <li>Click "Test Validation" to check checkout validation</li>
+                <li>Click "Test Full Checkout" to attempt checkout</li>
+                <li>Check the browser console for detailed logs</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function log(outputId, msg, type = 'info') {
+            const output = document.getElementById(outputId);
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'success' ? 'success' :
+                type === 'error' ? 'error' :
+                    type === 'warning' ? 'warning' : 'info';
+            const prefix = type === 'success' ? '✓' :
+                type === 'error' ? '✗' :
+                    type === 'warning' ? '⚠' : 'ℹ';
+            output.innerHTML += `<span class="${color}">[${timestamp}] ${prefix} ${msg}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+            console.log(`[${type.toUpperCase()}] ${msg}`);
+        }
+
+        function setupTestCart() {
+            const output = 'output1';
+            document.getElementById(output).innerHTML = '';
+
+            try {
+                const testCart = [
+                    { name: "Successful Trader", price: 439, quantity: 1, image: "/images/successful-trader.jpg" },
+                    { name: "Indian Stock Market Analysis - Prompt", price: 49, quantity: 1, image: "/images/stock-market.jpg" }
+                ];
+
+                // Calculate total correctly
+                const cartTotal = testCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                localStorage.setItem('cart', JSON.stringify(testCart));
+                localStorage.setItem('cartTotal', cartTotal.toString());
+
+                log(output, `✓ Created test cart with ${testCart.length} products`, 'success');
+                log(output, `✓ Total: ₹${cartTotal}`, 'success');
+                log(output, '', 'info');
+                log(output, 'Cart items:', 'info');
+                testCart.forEach((item, i) => {
+                    log(output, `  ${i + 1}. ${item.name}: ₹${item.price} × ${item.quantity}`, 'info');
+                });
+            } catch (error) {
+                log(output, `Error setting up cart: ${error.message}`, 'error');
+            }
+        }
+
+        function clearCart() {
+            const output = 'output1';
+            document.getElementById(output).innerHTML = '';
+            localStorage.removeItem('cart');
+            localStorage.removeItem('cartTotal');
+            log(output, 'Cart cleared from localStorage', 'warning');
+        }
+
+        function checkCartState() {
+            const output = 'output2';
+            document.getElementById(output).innerHTML = '';
+
+            try {
+                const savedCart = localStorage.getItem('cart');
+                const savedTotal = localStorage.getItem('cartTotal');
+
+                if (!savedCart) {
+                    log(output, 'No cart found in localStorage', 'warning');
+                    return;
+                }
+
+                const cart = JSON.parse(savedCart);
+                log(output, `Found cart with ${cart.length} items`, 'success');
+                log(output, '', 'info');
+
+                log(output, 'Stored cart total: ₹' + (savedTotal || '0'), 'info');
+
+                // Calculate the CORRECT total from items
+                const calculatedTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                log(output, `Calculated total from items: ₹${calculatedTotal}`, 'info');
+
+                if (parseFloat(savedTotal) !== calculatedTotal) {
+                    log(output, `⚠ MISMATCH! Stored: ₹${savedTotal}, Calculated: ₹${calculatedTotal}`, 'warning');
+                } else {
+                    log(output, '✓ Totals match perfectly', 'success');
+                }
+
+                log(output, '', 'info');
+                log(output, 'Items in cart:', 'info');
+                cart.forEach((item, i) => {
+                    log(output, `  ${i + 1}. ${item.name}: ₹${item.price} × ${item.quantity}`, 'info');
+                });
+            } catch (error) {
+                log(output, `Error: ${error.message}`, 'error');
+            }
+        }
+
+        function simulateCartPageLoad() {
+            const output = 'output3';
+            document.getElementById(output).innerHTML = '';
+
+            try {
+                // This mimics the loadCart() function from cart.html
+                let cart = [];
+                let cartTotal = 0;
+
+                const savedCart = localStorage.getItem('cart');
+
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                    cart = cart.map(item => {
+                        if (!item.quantity) item.quantity = 1;
+                        return item;
+                    });
+
+                    // ALWAYS recalculate total from items
+                    cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+                    log(output, `✓ Cart loaded successfully`, 'success');
+                    log(output, `✓ Items: ${cart.length}`, 'info');
+                    log(output, `✓ Total: ₹${cartTotal}`, 'success');
+                } else {
+                    log(output, 'No cart in localStorage', 'warning');
+                    cartTotal = 0;
+                }
+
+                log(output, '', 'info');
+                log(output, 'Validation Check:', 'info');
+                log(output, `  cart.length: ${cart.length}`, 'info');
+                log(output, `  cartTotal: ${cartTotal}`, 'info');
+                log(output, `  cart.length === 0: ${cart.length === 0}`, 'info');
+                log(output, `  cartTotal <= 0: ${cartTotal <= 0}`, 'info');
+
+                log(output, '', 'info');
+                if (cart.length === 0 || cartTotal <= 0) {
+                    log(output, '❌ WOULD SHOW "Cart is empty" ERROR', 'error');
+                } else {
+                    log(output, '✅ Checkout button would be ENABLED', 'success');
+                }
+            } catch (error) {
+                log(output, `Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testCheckoutValidation() {
+            const output = 'output4';
+            document.getElementById(output).innerHTML = '';
+
+            try {
+                // Simulate proceedToCheckout() validation
+                let cart = [];
+                let cartTotal = 0;
+
+                const savedCart = localStorage.getItem('cart');
+
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                    cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                }
+
+                log(output, 'Checkout Validation Tests:', 'info');
+                log(output, '', 'info');
+
+                // Test 1: Empty cart
+                log(output, '1. Empty cart check:', 'info');
+                log(output, `   cart.length === 0? ${cart.length === 0}`, 'info');
+                if (cart.length === 0) {
+                    log(output, '   → Would show "Your cart is empty" ❌', 'error');
+                } else {
+                    log(output, '   → Cart has items ✓', 'success');
+                }
+
+                log(output, '', 'info');
+
+                // Test 2: Total validation
+                log(output, '2. Total validation:', 'info');
+                log(output, `   cartTotal <= 0? ${cartTotal <= 0}`, 'info');
+                if (cartTotal <= 0) {
+                    log(output, '   → Would show "Invalid cart total" ❌', 'error');
+                } else {
+                    log(output, `   → Valid total: ₹${cartTotal} ✓`, 'success');
+                }
+
+                log(output, '', 'info');
+
+                // Test 3: Final result
+                log(output, '3. Final Result:', 'info');
+                if (cart.length === 0 || cartTotal <= 0) {
+                    log(output, '❌ CHECKOUT WOULD BE BLOCKED', 'error');
+                } else {
+                    log(output, '✅ CHECKOUT WOULD PROCEED', 'success');
+                }
+            } catch (error) {
+                log(output, `Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFullCheckout() {
+            const output = 'output5';
+            document.getElementById(output).innerHTML = '';
+
+            try {
+                // Load cart
+                let cart = [];
+                let cartTotal = 0;
+                const savedCart = localStorage.getItem('cart');
+
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                    cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                }
+
+                log(output, 'Starting Checkout Flow...', 'info');
+                log(output, `Cart Items: ${cart.length}, Total: ₹${cartTotal}`, 'info');
+                log(output, '', 'info');
+
+                // Validation
+                if (cart.length === 0) {
+                    log(output, '❌ CHECKOUT FAILED: Cart is empty', 'error');
+                    return;
+                }
+
+                if (cartTotal <= 0) {
+                    log(output, '❌ CHECKOUT FAILED: Invalid total', 'error');
+                    return;
+                }
+
+                log(output, '✓ Validation passed', 'success');
+                log(output, '→ Sending request to /api/create-order...', 'warning');
+
+                // Try to create order
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: cartTotal,
+                        currency: 'INR',
+                        receipt: `test_${Date.now()}`,
+                    }),
+                });
+
+                log(output, `Server response: ${response.status} ${response.statusText}`, 'info');
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    log(output, `❌ API Error: ${data.error || 'Unknown error'}`, 'error');
+                    log(output, '', 'info');
+                    log(output, 'Note: This is expected if PhonePe credentials are not valid.', 'warning');
+                    log(output, 'The important thing is that the cart validation PASSED! ✓', 'success');
+                } else {
+                    log(output, `✓ Order created successfully!`, 'success');
+                    if (data.redirectUrl) {
+                        log(output, `✓ Payment URL: ${data.redirectUrl}`, 'info');
+                    }
+                }
+            } catch (error) {
+                log(output, `Error: ${error.message}`, 'error');
+                log(output, '', 'info');
+                log(output, 'This might be due to credentials or connectivity', 'warning');
+            }
+        }
+
+        // Run initial checks on page load
+        window.addEventListener('DOMContentLoaded', function () {
+            console.log('Test page loaded');
+            log('output1', 'Test suite ready. Click buttons to start.', 'success');
+        });
+    </script>
+</body>
+
+</html>

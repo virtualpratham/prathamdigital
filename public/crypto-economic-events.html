@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role of Economic Events in Crypto Market — Product Details</title>
+    <meta name="description" content="Role of Economic Events in Crypto Market: Get to know the role of economic events in the crypto market. Full product details.">
+    <link rel="icon" href="fevicon.jpg" type="image/jpeg">
+    <style>
+        :root {
+            --primary: #45c2ef;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --text: #334155;
+            --light: #f8fafc;
+            --accent: #f59e0b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            margin: 0;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        header, footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        header {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after { width: 100%; }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .cart-icon { position: relative; cursor: pointer; transition: transform 0.3s ease; }
+        .cart-icon svg { color: var(--text); width: 28px; height: 28px; }
+        .cart-icon:hover { transform: scale(1.1); }
+        .cart-count {
+            position: absolute; top: -8px; right: -8px; background: var(--accent);
+            color: rgb(0, 0, 0); border-radius: 50%; width: 20px; height: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+        .cart-count.pulse { animation: pulse 0.5s ease; }
+        @keyframes pulse { 0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)} }
+        .hamburger-menu { display: none; cursor: pointer; z-index: 101; padding: 0.5rem; position: relative; }
+        .hamburger-menu .bar { display:block; width:25px; height:3px; margin:5px auto; background-color: var(--secondary); transition: all 0.3s ease-in-out; border-radius: 2px; }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section h3 { color: var(--secondary); margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; padding: 0; margin: 0; }
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        .footer-section ul li a { color: var(--text); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: var(--primary); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-links a { width: 40px; height: 40px; background: #f1f5f9; color: var(--text); border-radius: 50%;
+            display:flex; align-items:center; justify-content:center; transition: all .3s; }
+        .social-links a:hover { transform: translateY(-5px); background: var(--primary); color: white; }
+        .footer-bottom { text-align: center; border-top: 1px solid #e5e7eb; padding: 1.25rem 0 1.5rem; margin-top: 2rem; }
+        a.logo {
+            font-weight: 800;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        a.logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        a.logo:hover::after {
+            transform: scaleX(1);
+        }
+        a.logo:hover {
+            transform: translateY(-1px);
+            transition: transform 0.2s ease;
+        }
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000;
+        }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content {
+            background: white; border-radius: 20px; padding: 2rem; max-width: 500px; width: 90%; position: relative;
+        }
+        
+        /* Mobile: Instant modal appearance */
+        @media (max-width: 768px) {
+            .modal.active {
+                align-items: flex-end;
+                justify-content: stretch;
+            }
+            
+            .modal-content {
+                max-width: 100%;
+                width: 100%;
+                border-radius: 20px 20px 0 0;
+                max-height: 90vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 1.5rem;
+                margin: 0;
+            }
+        }
+        .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: .75rem 0; border-bottom: 1px solid #e5e7eb; }
+        .cart-item:last-child { border-bottom: none; }
+        .remove-item { background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer; margin-left: .75rem; }
+        .cart-total { display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; }
+        .toast {
+            position: fixed; bottom: 2rem; right: 2rem; background: #10b981; color: white; padding: 1rem 2rem;
+            border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateX(calc(100% + 2rem)); transition: transform .5s;
+        }
+        .toast.show { transform: translateX(0); }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 1200px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+        }
+        .cover {
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        h1 {
+            color: var(--secondary);
+            margin: 0 0 0.5rem;
+        }
+        .subtitle { color: #475569; margin-bottom: 1rem; }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0.75rem 0 1rem;
+        }
+        .old { text-decoration: line-through; color: #94a3b8; font-weight: 500; margin-right: .5rem; }
+        .btns { display: flex; gap: .75rem; flex-wrap: wrap; margin: 1.25rem 0 2rem; }
+        .btn {
+            border: none;
+            padding: 0.9rem 1.4rem;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+        .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); text-decoration: none; display: inline-flex; align-items: center; }
+        .section { margin: 1.25rem 0 0; }
+        .section h2 { margin: 0 0 .5rem; color: var(--secondary); }
+        .features { list-style: none; padding: 0; margin: .5rem 0 0; }
+        .features li { margin: .35rem 0; }
+        footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            padding: 1.25rem 0 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            nav {
+                padding: 0.75rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .cover {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .price {
+                font-size: 1.5rem;
+            }
+            
+            .btns {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .btn {
+                width: 100%;
+                min-height: 44px;
+                padding: 0.875rem 1.5rem;
+            }
+            
+            .section {
+                margin: 1rem 0 0;
+            }
+            
+            .section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .features li {
+                font-size: 0.95rem;
+            }
+            
+            .hamburger-menu {
+                display: block;
+                min-width: 44px;
+                min-height: 44px;
+                padding: 0.5rem;
+            }
+            
+            .hamburger-menu.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger-menu.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger-menu.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                height: 100vh;
+                padding-top: 5rem;
+                text-align: center;
+                transition: 0.3s;
+                gap: 1.5rem;
+                z-index: 100;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            /* Close button overlay when menu is open */
+            .nav-menu.active::before {
+                content: '';
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                width: 44px;
+                height: 44px;
+                background: rgba(0, 0, 0, 0.05);
+                border-radius: 50%;
+                z-index: 102;
+                pointer-events: none;
+            }
+            
+            .nav-menu a {
+                font-size: 1.25rem;
+                padding: 0.75rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .cart-icon {
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .toast {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                transform: translateX(calc(100% + 1rem));
+                padding: 1rem;
+                font-size: 0.9rem;
+                max-width: calc(100% - 2rem);
+            }
+            
+            .toast.show {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.75rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .price {
+                font-size: 1.35rem;
+            }
+            
+            .logo, a.logo {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="index.html#home">📚 Pratham Digital</a>
+            <div class="nav-menu" id="navMenu" role="navigation" aria-label="Primary">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="cart-icon" onclick="openCheckout()">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.29 2.29c-.63.63-.18 1.71.71 1.71H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger-menu" id="hamburgerMenu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <div class="cover">
+                <img src="economic.png" alt="Role of Economic Events in Crypto Market">
+            </div>
+            <div>
+                <span class="badge">New</span>
+                <h1>Role of Economic Events in Crypto Market - eBook</h1>
+                <div class="subtitle">Get to know the role of economic events in the crypto market</div>
+
+                <div class="price"><span class="old">₹149</span> ₹39</div>
+
+                <div class="btns">
+                    <button class="btn btn-primary" id="addToCartBtn" type="button">Add to Cart</button>
+                </div>
+
+                <div class="section">
+                    <h2>Overview</h2>
+                    <p>Understanding how economic events impact cryptocurrency markets is crucial for successful trading. This guide provides comprehensive insights into the relationship between economic indicators and crypto market movements.</p>
+                </div>
+                <div class="section">
+                    <h2>What you'll learn</h2>
+                    <ul class="features">
+                        <li>How economic events affect cryptocurrency prices</li>
+                        <li>Key economic indicators to watch</li>
+                        <li>Market correlation patterns</li>
+                        <li>Timing your trades around economic events</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>What's included</h2>
+                    <ul class="features">
+                        <li>Comprehensive economic events guide</li>
+                        <li>Market analysis frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We provide premium digital content to help you achieve your goals faster.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/pratham_digital_in/" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal Information</h3>
+                <ul>
+                    <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html" target="_blank" rel="noopener">Terms of Service</a></li>
+                    <li><a href="cancellation-refunds.html" target="_blank" rel="noopener">Cancellation & Refunds</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:itsprathambusiness@gmail.com">itsprathambusiness@gmail.com</a></p>
+                <p>Phone: <a href="tel:+919415946434">+91 94159 46434</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pratham Digital. All Rights Reserved.</p>
+            <p><strong>This website is created and managed by Pratham Sharma</strong></p>
+        </div>
+    </footer>
+
+    <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="modal-content" role="document">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 id="cartTitle">Your Cart</h2>
+            <div id="cartItems">
+                <p>Your cart is currently empty.</p>
+            </div>
+            <hr style="margin: 1.5rem 0;">
+            <div class="cart-total">
+                <h3>Total:</h3>
+                <h3 id="cartTotal">₹0.00</h3>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toastNotification">Item added to cart!</div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+        const cartCountEl = document.getElementById('cartCount');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartTotalEl = document.getElementById('cartTotal');
+        function formatCurrency(amount) {
+            try { return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(amount); }
+            catch (_) { return `₹${amount.toFixed(2)}`; }
+        }
+        function updateCartCount() {
+            const totalQuantity = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            cartCountEl.textContent = totalQuantity;
+            cartCountEl.classList.add('pulse');
+            setTimeout(() => cartCountEl.classList.remove('pulse'), 500);
+        }
+        function updateCartModal() {
+            cartItemsEl.innerHTML = '';
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p>Your cart is empty.</p>';
+                cartTotalEl.textContent = formatCurrency(0);
+                return;
+            }
+            // Calculate total
+            cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            cart.forEach((item, index) => {
+                const quantity = item.quantity || 1;
+                const itemTotal = item.price * quantity;
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item';
+                itemEl.innerHTML = `
+                    <span>${item.name}${quantity > 1 ? ` (×${quantity})` : ''}</span>
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <strong>${formatCurrency(itemTotal)}</strong>
+                        <button class="remove-item" aria-label="Remove item" onclick="removeFromCart(${index})">&times;</button>
+                    </div>
+                `;
+                cartItemsEl.appendChild(itemEl);
+            });
+            cartTotalEl.textContent = formatCurrency(cartTotal);
+        }
+        function saveCartToStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cartTotal', cartTotal.toString());
+        }
+        function loadCartFromStorage() {
+            const savedCart = localStorage.getItem('cart');
+            const savedTotal = localStorage.getItem('cartTotal');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                // Migrate old cart format (without quantity) to new format
+                cart = cart.map(item => {
+                    if (!item.quantity) {
+                        item.quantity = 1;
+                    }
+                    if (!item.image) {
+                        item.image = getProductImage(item.name);
+                    }
+                    return item;
+                });
+                // Merge duplicate items
+                const merged = {};
+                cart.forEach(item => {
+                    const key = item.name;
+                    if (merged[key]) {
+                        merged[key].quantity += (item.quantity || 1);
+                    } else {
+                        merged[key] = {
+                            name: item.name,
+                            price: item.price,
+                            quantity: item.quantity || 1,
+                            image: item.image || getProductImage(item.name)
+                        };
+                    }
+                });
+                cart = Object.values(merged);
+                // Recalculate total
+                cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                updateCartCount();
+                updateCartModal();
+            }
+        }
+        // Get product image based on product name
+        function getProductImage(productName) {
+            if (!productName) return 'cover.jpg';
+            if (productName.includes('Successful Trader')) return 'cover.jpg';
+            if (productName.includes('Indian Stock Market Analysis')) return 'prompt.png';
+            if (productName.includes('Economic Events') || productName.includes('Crypto Market')) return 'economic.png';
+            return 'cover.jpg'; // Default image
+        }
+
+        function addToCart(name, price) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                // Increment quantity
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+                showToast(`${name} quantity increased!`);
+            } else {
+                // Add new item with quantity 1 and image
+                const image = getProductImage(name);
+                cart.push({ name, price, quantity: 1, image });
+                showToast(`${name} added to cart!`);
+            }
+            // Recalculate total
+            cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            saveCartToStorage();
+            updateCartCount();
+            updateCartModal();
+        }
+        function removeFromCart(index) {
+            const item = cart[index];
+            if (!item) return;
+            cart.splice(index, 1);
+            // Recalculate total
+            cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            saveCartToStorage();
+            updateCartCount();
+            updateCartModal();
+            showToast(`${item.name} removed from cart`);
+        }
+        function openCheckout() {
+            saveCartToStorage();
+            window.location.href = 'cart.html';
+        }
+        function closeModal() {
+            checkoutModal.classList.remove('active');
+        }
+        window.addEventListener('click', (e) => { if (e.target === checkoutModal) closeModal(); });
+
+        // Sync price from index.html via localStorage
+        function syncPriceFromIndex() {
+            const productPrices = JSON.parse(localStorage.getItem('productPrices') || '{}');
+            const priceDiv = document.querySelector('.price');
+            
+            if (!priceDiv) return;
+            
+            // Find product price by title
+            let priceData = null;
+            for (const [title, data] of Object.entries(productPrices)) {
+                if (title.includes('Role of Economic Events')) {
+                    priceData = data;
+                    break;
+                }
+            }
+            
+            if (priceData && !isNaN(priceData.price)) {
+                if (priceData.oldPrice) {
+                    priceDiv.innerHTML = `<span class="old">₹${priceData.oldPrice.toLocaleString('en-IN')}</span> ₹${priceData.price.toLocaleString('en-IN')}`;
+                } else {
+                    priceDiv.innerHTML = `₹${priceData.price.toLocaleString('en-IN')}`;
+                }
+            }
+        }
+
+        function extractCurrentPrice() {
+            try {
+                const priceDiv = document.querySelector('.price');
+                if (!priceDiv) return null;
+                const clone = priceDiv.cloneNode(true);
+                const old = clone.querySelector('.old');
+                if (old) old.remove();
+                const text = clone.textContent || '';
+                const matches = text.match(/\d+(?:\.\d+)?/g);
+                if (!matches || matches.length === 0) return null;
+                const value = Number(matches[matches.length - 1]);
+                return Number.isFinite(value) ? value : null;
+            } catch (_) { return null; }
+        }
+        function showToast(message) {
+            const toastEl = document.getElementById('toastNotification');
+            if (!toastEl) return;
+            toastEl.textContent = message;
+            toastEl.classList.add('show');
+            setTimeout(() => {
+                toastEl.classList.remove('show');
+            }, 3000);
+        }
+        function initButtons() {
+            syncPriceFromIndex();
+            
+            const addBtn = document.getElementById('addToCartBtn');
+            if (addBtn) {
+                const price = extractCurrentPrice();
+                if (typeof price === 'number' && !isNaN(price)) {
+                    addBtn.addEventListener('click', () => {
+                        addToCart('Role of Economic Events in Crypto Market', price);
+                    });
+                } else {
+                    addBtn.addEventListener('click', () => {
+                        addToCart('Role of Economic Events in Crypto Market', 39);
+                    });
+                }
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            window.addEventListener('DOMContentLoaded', initButtons);
+        } else {
+            initButtons();
+        }
+
+        async function proceedToCheckout() {
+            if (cart.length === 0 || cartTotal <= 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+
+            try {
+                showToast('Processing payment...');
+                closeModal();
+
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: cartTotal,
+                        currency: 'INR',
+                        receipt: `receipt_${Date.now()}`,
+                    }),
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to create order');
+                }
+
+                const orderData = await response.json();
+                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.setItem('cartTotal', cartTotal.toString());
+
+                // Store merchant transaction ID for verification
+                if (orderData.merchantTransactionId) {
+                    localStorage.setItem('pendingTransactionId', orderData.merchantTransactionId);
+                }
+
+                // Redirect to PhonePe payment page
+                if (orderData.redirectUrl) {
+                    window.location.href = orderData.redirectUrl;
+                } else {
+                    throw new Error('Payment redirect URL not received');
+                }
+            } catch (error) {
+                console.error('Checkout error:', error);
+                showToast('Error: ' + error.message);
+                setTimeout(() => {
+                    window.location.href = '/crypto-economic-events.html?payment_error=true';
+                }, 2000);
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load cart from localStorage on page load
+            loadCartFromStorage();
+            
+            // Listen for storage changes (cart updates from other tabs/pages)
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'cart' || e.key === 'cartTotal') {
+                    loadCartFromStorage();
+                    updateCartModal();
+                    updateCartCount();
+                }
+            });
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('payment_failed') === 'true') {
+                showToast('Payment failed. Please try again.');
+            }
+            if (urlParams.get('payment_error') === 'true') {
+                showToast('Payment error occurred. Please contact support.');
+            }
+            if (urlParams.get('payment_failed') || urlParams.get('payment_error')) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+        
+        // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+            
+            function toggleHamburger() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                const expanded = hamburger.classList.contains('active');
+                hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            }
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', toggleHamburger);
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleHamburger();
+                    }
+                });
+                
+                // Close menu when a link is clicked
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navMenu.classList.contains('active')) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

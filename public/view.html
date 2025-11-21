@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Ebook</title>
+    <style>
+        html, body { height:100%; margin:0; }
+        body { background: linear-gradient(135deg,#111111 0%, #4b5563 100%); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,sans-serif; }
+        header { background:#ffffffee; box-shadow:0 2px 12px rgba(0,0,0,.12); position:sticky; top:0; z-index:10; backdrop-filter: blur(6px); }
+        .bar { max-width:1200px; margin:0 auto; padding:0.75rem 1rem; display:flex; align-items:center; justify-content:space-between; }
+        .logo { font-weight:800; color:#111111; }
+        .btn { padding:0.5rem 1rem; border-radius:999px; text-decoration:none; border:2px solid #111111; color:#111111; font-weight:700; background:#ffffff; }
+        .viewer { height:calc(100% - 56px); }
+        .viewer iframe { width:100%; height:100%; border:0; }
+        .contact-float { position:fixed; left:1.25rem; bottom:1.25rem; z-index:2100; background:#0f172a; color:#fff; text-decoration:none; padding:.75rem 1rem; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.2); display:inline-flex; align-items:center; gap:.5rem; font-weight:700; border:2px solid #4f46e5; }
+        .contact-float:hover { transform:translateY(-2px); transition:transform .2s ease; }
+        .contact-float svg { width:18px; height:18px; }
+        
+        @media (max-width: 768px) {
+            .bar {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
+            .btn {
+                padding: 0.5rem 0.875rem;
+                font-size: 0.875rem;
+                min-height: 44px;
+            }
+            
+            .viewer {
+                height: calc(100% - 48px);
+            }
+            
+            .contact-float {
+                left: 0.75rem;
+                bottom: 0.75rem;
+                padding: 0.625rem 0.875rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <header>
+        <div class="bar">
+            <div class="logo">📚 Pratham Digital</div>
+            <a class="btn" href="download.html">Back to Download</a>
+        </div>
+    </header>
+    <div class="viewer">
+        <iframe src="ebook.pdf" title="Ebook PDF"></iframe>
+    </div>
+</body>
+</html>
