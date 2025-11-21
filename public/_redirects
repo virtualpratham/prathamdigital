@@ -1,1 +1,7 @@
-/*    /:splat.html   200
+# Clean URLs (Hide .html)
+ /cart        /cart.html        200
+ /products    /products.html    200
+ /about       /about.html       200
+ /contact     /contact.html     200
+ /terms       /terms.html       200
+ /privacy     /privacy.html     200
