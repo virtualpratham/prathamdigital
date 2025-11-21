@@ -27,7 +27,7 @@ const client = StandardCheckoutClient.getInstance(
   process.env.PHONEPE_CLIENT_ID,
   process.env.PHONEPE_CLIENT_SECRET,
   process.env.PHONEPE_CLIENT_VERSION,
-  Env.UAT,     // 🔥 FINAL PRODUCTION
+  Env.PRODUCTION,     // 🔥 FINAL -> PRODUCTION OR TEST -> UAT
   false               // Event sending OFF for safety
 );
 
