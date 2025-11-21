@@ -113,6 +113,18 @@ app.post("/api/verify-payment", async (req, res) => {
   }
 });
 
+
+// ------------------------------------------------------------------
+// ⭐ ADD THIS — PHONEPE WEBHOOK (LIVE REQUIRED)
+// ------------------------------------------------------------------
+app.post("/webhook/phonepe", (req, res) => {
+  console.log("📩 WEBHOOK RECEIVED:", JSON.stringify(req.body, null, 2));
+
+  // Always reply 200 so PhonePe knows your server is UP
+  res.sendStatus(200);
+});
+
+
 // ------------------------------------------------------------------
 // STATIC FILES
 // ------------------------------------------------------------------
